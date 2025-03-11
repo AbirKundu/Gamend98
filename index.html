@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasons Why Abir Kundu Love You 💖</title>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+        h1 {
+            color: #ff4081;
+        }
+        .container {
+            margin-top: 20px;
+            font-size: 22px;
+            color: #ff1493;
+            font-weight: bold;
+            min-height: 50px;
+        }
+        .reason {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #ff4081;
+            font-size: 24px;
+            padding: 10px;
+            min-height: 40px;
+        }
+        .btn {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 15px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #d81b60;
+            transform: scale(1.1);
+        }
+        /* Floating Heart Animation */
+        .heart {
+            position: absolute;
+            color: #ff4081;
+            font-size: 30px;
+            animation: floatUp 2s linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>💖 Reasons Why Abir Kundu Loves 
+      You 💖</h1>
+    <div class="container">
+        <p id="reasonText" class="reason"></p>
+        <button class="btn" onclick="showReason()">Next Reason 💕</button>
+    </div>
+
+    <audio id="clickSound" src="https://www.fesliyanstudios.com/play-mp3/4389"></audio>
+
+    <script>
+        const reasons = [
+            "You make me smile every single day! 😊",
+            "You are the most caring and kind person I know! 💖",
+            "Your laughter is the cutest thing ever! 😍",
+            "You always support me, no matter what! 💪",
+            "Every moment with you feels special! ✨",
+            "You are my best friend and my happiness! 💕"
+        ];
+
+        let index = 0;
+        let reasonText = document.getElementById("reasonText");
+        let sound = document.getElementById("clickSound");
+
+        function showReason() {
+            let reason = reasons[index];
+            reasonText.innerHTML = "";
+            let i = 0;
+
+            function typeWriter() {
+                if (i < reason.length) {
+                    reasonText.innerHTML += reason.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50); // Speed of typing effect
+                } else {
+                    reasonText.style.borderRight = "none"; // Remove blinking cursor after typing
+                }
+            }
+
+            reasonText.style.borderRight = "2px solid #ff4081"; // Add cursor effect
+            typeWriter();
+
+            createFloatingHeart();
+            sound.play();
+            index = (index + 1) % reasons.length; // Loop back to start
+        }
+
+        function createFloatingHeart() {
+            let heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = window.innerHeight + "px";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 2000); // Remove heart after animation
+        }
+    </script>
+
+</body>
+</html>
