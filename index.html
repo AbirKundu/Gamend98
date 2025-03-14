@@ -68,7 +68,8 @@
         <button class="btn" onclick="showReason()">Next Reason 💕</button>
     </div>
 
-    <audio id="clickSound" src="https://www.fesliyanstudios.com/play-mp3/4389"></audio>
+    <!-- Love Melody Sound -->
+    <audio id="loveMelody" src="https://www.fesliyanstudios.com/play-mp3/4493" preload="auto"></audio>
 
     <script>
         const reasons = [
@@ -82,7 +83,7 @@
 
         let index = 0;
         let reasonText = document.getElementById("reasonText");
-        let sound = document.getElementById("clickSound");
+        let loveMelody = document.getElementById("loveMelody");
 
         function showReason() {
             let reason = reasons[index];
@@ -103,7 +104,7 @@
             typeWriter();
 
             createFloatingHeart();
-            sound.play();
+            loveMelody.play(); // Play love melody sound
             index = (index + 1) % reasons.length; // Loop back to start
         }
 
